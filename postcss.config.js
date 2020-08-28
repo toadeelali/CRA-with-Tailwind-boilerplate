@@ -8,16 +8,17 @@
 //   ],
 // }
 
-
 // Manual methods
 
 const tailwindcss = require('tailwindcss');
 const purgecss = require('@fullhuman/postcss-purgecss');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   plugins: [
     tailwindcss('./tailwind.config.js'),
-    process.env.NODE_ENV === "production" && purgecss({
+    autoprefixer,
+    process.env.NODE_ENV === 'production' && purgecss({
       content: [
         './src/**/*.js',
         './src/**/*.jsx',
@@ -25,7 +26,6 @@ module.exports = {
         './src/**/*.tsx',
       ],
       css: ['./src/**/*.css'],
-    })
-  ]
-}
-
+    }),
+  ],
+};
